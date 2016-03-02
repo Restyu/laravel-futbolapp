@@ -9,10 +9,11 @@
     <div>aficionados: {{$team->partners}}</div>
     <div>estadio: {{$team->stadium}}</div>
     <br>
-    
+
+    <h3>Jugadores</h3>
     <ul>
       @foreach($team->players as $play)
-      <li>{{$play->name}}</li>
+      <li><a href="/players/{{($play->id) }}">{{$play->name}}</a></li>
       @endforeach
     </ul>
   @stop

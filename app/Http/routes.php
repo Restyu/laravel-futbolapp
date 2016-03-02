@@ -11,10 +11,18 @@
 |
 */
 
-Route::get('/','TeamsController@index'); // lista de equipos
-Route::get('players','PlayersController@index'); // lista de jugadores
-Route::get('team/{team}','TeamsController@show'); // lista de id de equipo
-Route::get('player/{player}','PlayersController@show'); // lista de id de jugador
+Route::get('/', function(){
+  return redirect('teams');
+});
+
+Route::get('teams','TeamsController@index');
+Route::post('teams', 'TeamsController@store');
+
+Route::get('teams/{team}','TeamsController@show');
+
+Route::get('players','PlayersController@index');
+Route::get('players/{player}','PlayersController@show');
+
 
 /*
 |--------------------------------------------------------------------------

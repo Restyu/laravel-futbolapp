@@ -7,6 +7,6 @@
   <div>posicion: {{$player->position}}</div>
   <div>F.nac: {{$player->birthdate}}</div>
   <div>numero: {{$player->number}}</div>
-  
+  <div>equipo: {{$player->team->name}}</div>
 
 @stop
