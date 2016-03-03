@@ -17,8 +17,10 @@ Route::get('/', function(){
 
 Route::get('teams','TeamsController@index');
 Route::post('teams', 'TeamsController@store');
-
 Route::get('teams/{team}','TeamsController@show');
+Route::get('teams/{team}/edit','TeamsController@edit');
+Route::patch('teams/{team}','TeamsController@update');
+
 
 Route::get('players','PlayersController@index');
 Route::get('players/{player}','PlayersController@show');

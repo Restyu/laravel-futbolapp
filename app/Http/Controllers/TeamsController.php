@@ -35,4 +35,16 @@ class TeamsController extends Controller
 
       return back();
     }
+
+    public function edit(Team $team){
+
+      return view('teams.edit' , compact('team') );
+    }
+
+    public function update(Request $request, Team $team){
+
+      $team->update( $request->all() );
+
+      
+    }
 }

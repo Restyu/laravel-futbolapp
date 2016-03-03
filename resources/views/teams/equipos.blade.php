@@ -5,7 +5,10 @@
   <h1>lista de equipos</h1>
 
   @foreach($teams as $team)
-    <div><a href="teams/{{ $team->id }}">{{ $team->name }}</a></div>
+    <div>
+      <a href="{{ $team->id }}">{{ $team->name }}</a>
+      <a class="pull-right" href="{{ url('/'.'teams/'.$team->id.'/edit') }}">editar</a>
+    </div>
   @endforeach
 
   <br>
