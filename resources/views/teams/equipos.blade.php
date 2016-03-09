@@ -6,7 +6,7 @@
 
   @foreach($teams as $team)
     <div>
-      <a href="{{ $team->id }}">{{ $team->name }}</a>
+      <a href="{{ url('teams/'.$team->id) }}">{{ $team->name }}</a>
       <a class="pull-right" href="{{ url('/'.'teams/'.$team->id.'/edit') }}">editar</a>
     </div>
   @endforeach

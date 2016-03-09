@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use DB;
+
 use App\Player;
+use App\Team;
 
 class PlayersController extends Controller
 {
@@ -22,4 +23,12 @@ class PlayersController extends Controller
 
       return view('players.player' , compact('player') );
     }
+
+    public function new(){
+
+      $teams = Team::all();
+
+      return view('players.newplayer', compact('teams') );
+    }
+
 }
