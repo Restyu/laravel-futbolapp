@@ -25,6 +25,23 @@ class TeamsController extends Controller
 
     public function store(Request $request){
 
+      $this->validate($request, [
+        'name' => 'required|string',
+        'city' => 'required|string',
+        'foundation' => 'required|numeric',
+        'partners' => 'required|numeric',
+        'stadium' => 'required|string',
+      ],[
+        'name.required' => 'Debes introducir un nombre de equipo',
+        'city.required' => 'Debes la ciudad del equipo',
+        'foundation.required' => 'Debes introducir el año de fundacion del  equipo',
+        'partners.required' => 'Debes introducir los socios  del equipo',
+        'stadium.required' => 'Debes introducir el nombre de estadio',
+        'foundation.numeric' => 'Tiene que ser un numero merluzo',
+        'stadium.numeric' => 'Tiene que ser numerico',
+
+      ]);
+
       $team = new Team;
       $team->name = $request->name;
       $team->city = $request->city;
@@ -43,8 +60,25 @@ class TeamsController extends Controller
 
     public function update(Request $request, Team $team){
 
+      $this->validate($request, [
+        'name' => 'required|string',
+        'city' => 'required|string',
+        'foundation' => 'required|numeric',
+        'partners' => 'required|numeric',
+        'stadium' => 'required|string',
+      ],[
+        'name.required' => 'Debes introducir un nombre de equipo',
+        'city.required' => 'Debes la ciudad del equipo',
+        'foundation.required' => 'Debes introducir el año de fundacion del  equipo',
+        'partners.required' => 'Debes introducir los socios  del equipo',
+        'stadium.required' => 'Debes introducir el nombre de estadio',
+        'foundation.numeric' => 'Tiene que ser un numero merluzo',
+        'stadium.numeric' => 'Tiene que ser numerico',
+
+      ]);
+
       $team->update( $request->all() );
 
-      
+      return redirect('teams');
     }
 }

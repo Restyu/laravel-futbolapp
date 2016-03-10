@@ -4,6 +4,7 @@
   <h2>Actualizar equipo</h2>
 
   <form  action="{{ url('/teams/'.$team->id)}}" method="post">
+      {{ csrf_field() }}
     <input type="hidden" name="_method" value="patch">
     <div class="form-group">
       <label for="name">monbre</label>
@@ -26,6 +27,12 @@
       <input class="form-control" type="text" name="stadium" value="{{ $team->stadium}}">
     </div>
     <button class="btn btn-primary" type="submit">editar</button>
+     @if( count($errors) )
+        @foreach ($errors->all() as $error)
+          <span>{{ $error }}</span>
+        @endforeach
+      @endif
+
   </form>
 
 

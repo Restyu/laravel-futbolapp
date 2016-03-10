@@ -15,6 +15,8 @@
   <br>
 
   <form method="post" action="">
+      {{ csrf_field() }}
+
     <div class="form-group">
       <label>nombre equipo
         <input type="text" name="name" class="form-control" value="">
@@ -35,6 +37,11 @@
     <div class="form-group">
       <button type="submit" class="btn btn-info">Añadir equipo</button>
     </div>
+    @if( count($errors) )
+        @foreach ($errors->all() as $error)
+          <span>{{ $error }}</span>
+        @endforeach
+      @endif
   </form>
 
 @stop
